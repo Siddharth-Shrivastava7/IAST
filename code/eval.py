@@ -52,9 +52,9 @@ if __name__ == "__main__":
     parser.add_argument(
         "--config_file",
         metavar="FILE",
-        help="path to config file",
+        help="path to config file", default='./config/city2darkz_v100/run_task/warmup_at.yaml'
     )
-    parser.add_argument("--resume_from")
+    parser.add_argument("--resume_from", default='../../saved_models/IAST/warmup_at/best_iter.pth' )
     parser.add_argument("--gpu_num", type=int, default=1)
 
     args = parser.parse_args()

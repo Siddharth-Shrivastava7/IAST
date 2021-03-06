@@ -19,7 +19,7 @@ TRAIN:
   EPOCHES: 10
   OPTIMIZER: "Adam"
   LR: 0.00002
-  BATCHSIZE: 4
+  BATCHSIZE: 6
   ITER_REPORT: 100
   SCHEDULER: "CosineAnnealingLR_with_Restart"
   COSINEANNEALINGLR:
@@ -36,7 +36,7 @@ DATASET:
     TYPE: "DarkzurichDataset"
     ANNS: "../data/darkzurich_val.json"
     IMAGEDIR: "../../scratch/data/dark_zurich_val"
-    RESIZE_SIZE: [1280, 640]
+    RESIZE_SIZE: [1920, 1080] #orginal
   TARGET:
     TYPE: "MsDarkzurichDataset"
     ANNS: "../data/darkzurich_train.json"

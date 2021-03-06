@@ -1,0 +1,117 @@
+===============================
+1498290.pbshpc
+vsky012.hpc.iitd.ac.in
+===============================
+/home/cse/phd/anz208849/IAST/code
+Selected optimization level O1:  Insert automatic casts around Pytorch functions and Tensor methods.
+
+Defaults for this optimization level are:
+enabled                : True
+opt_level              : O1
+cast_model_type        : None
+patch_torch_functions  : True
+keep_batchnorm_fp32    : None
+master_weights         : None
+loss_scale             : dynamic
+Processing user overrides (additional kwargs that are not None)...
+After processing overrides, optimization options are:
+enabled                : True
+opt_level              : O1
+cast_model_type        : None
+patch_torch_functions  : True
+keep_batchnorm_fp32    : None
+master_weights         : None
+loss_scale             : dynamic
+Warning:  multi_tensor_applier fused unscale kernel is unavailable, possibly because apex was installed without --cuda_ext --cpp_ext. Using Python fallback.  Original ImportError was: ImportError('/home/cse/phd/anz208849/anaconda3/envs/IAST/lib/python3.7/site-packages/amp_C.cpython-37m-x86_64-linux-gnu.so: undefined symbol: _ZN3c104cuda12device_countEv')
+DATASET:
+  ANNS: ../data/cityscapes_train2.json
+  IMAGEDIR: ../../scratch/data/cityscapes
+  NUM_WORKER: 2
+  RESIZE_SIZE: []
+  TARGET:
+    ANNS: ../data/darkzurich_train.json
+    IMAGEDIR: ../../scratch/data/dark_zurich
+    ORIGIN_SIZE: [1920, 1080]
+    PSEUDO_BATCH_SIZE: 2
+    PSEUDO_LOSS_WEIGHT: 1.0
+    PSEUDO_PL: IAST
+    PSEUDO_PL_ALPHA: 0.2
+    PSEUDO_PL_BETA: 0.9
+    PSEUDO_PL_GAMMA: 1.0
+    PSEUDO_SAVE_DIR: 
+    PSEUDO_SIZE: [1280, 640]
+    SKIP_GEN_PSEUDO: False
+    SOURCE_LOSS_WEIGHT: 1.0
+    TYPE: MsDarkzurichDataset
+  TYPE: MsCityscapesDataset
+  USE_AUG: True
+  VAL:
+    ANNS: ../data/darkzurich_val.json
+    IMAGEDIR: ../../scratch/data/dark_zurich_val
+    ORIGIN_SIZE: [1920, 1080]
+    RESIZE_SIZE: [1920, 1080]
+    TYPE: DarkzurichDataset
+MODEL:
+  BACKBONE:
+    PRETRAINED: True
+    TYPE: R-DL-101-C1-C5-FREEZEBN
+    WITH_IBN: False
+  DECODER:
+    TYPE: DeepLabV2Dedoder
+  DISCRIMINATOR:
+    LAMBDA_ENTROPY_WEIGHT: 0.0
+    LAMBDA_KLDREG_WEIGHT: 0.0
+    LOSS: MSELoss
+    LR: [2e-05]
+    TYPE: ['Origin-Predictor']
+    UPDATE_T: 1.0
+    WEIGHT: [0.05]
+  PREDICTOR:
+    LOSS: CrossEntropy
+    NUM_CLASSES: 19
+    TYPE: UpsamplePredictor
+  TYPE: UDA_Segmentor
+RANDOM_SEED: 888
+TEST:
+  BATCH_SIZE: 1
+  NUM_WORKER: 2
+  N_PROC_PER_NODE: 1
+  RESIZE_SIZE: [[1280, 640]]
+  USE_FLIP: False
+TRAIN:
+  APEX_OPT: O1
+  BATCHSIZE: 6
+  COSINEANNEALINGLR:
+    T_MAX: 4
+    T_MULT: 1.0
+  EARLY_STOPPING: -1
+  EPOCHES: 10
+  ITER_REPORT: 100
+  ITER_VAL: 400
+  LR: 2e-05
+  N_PROC_PER_NODE: 1
+  OPTIMIZER: Adam
+  PSEUDO_RESUME_FROM: 
+  RESUME_FROM: ../../saved_models/IAST/source_only/best_iter.pth
+  SAVE_ALL: False
+  SCHEDULER: CosineAnnealingLR_with_Restart
+WORK_DIR: ../../saved_models/IAST/warmup_at
+resume from epoch 0 iter 0
+Start training!
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
+eta: 4h 03min, epoch: 1, iter: 100 , time: 3.008 s/iter, lr: 1.99e-05, D_lr: 1.99e-05, loss: 1.578195, D_Origin-Predictor_loss: 0.295057, mask_loss: 1.578195
+eta: 3h 57min, epoch: 1, iter: 200 , time: 2.999 s/iter, lr: 1.95e-05, D_lr: 1.95e-05, loss: 0.861690, D_Origin-Predictor_loss: 0.223867, mask_loss: 0.861690
+eta: 3h 52min, epoch: 1, iter: 300 , time: 2.997 s/iter, lr: 1.89e-05, D_lr: 1.89e-05, loss: 0.768759, D_Origin-Predictor_loss: 0.199808, mask_loss: 0.768759
+eta: 3h 47min, epoch: 1, iter: 400 , time: 3.001 s/iter, lr: 1.81e-05, D_lr: 1.81e-05, loss: 0.664218, D_Origin-Predictor_loss: 0.195004, mask_loss: 0.664218
+epoch: 1, val_miou: 0.0947(0.0947), 0: 0.3661, 1: 0.1078, 2: 0.4595, 3: 0.0073, 4: 0.0212, 5: 0.0830, 6: 0.0307, 7: 0.0167, 8: 0.3187, 9: 0.0444, 10: 0.0253, 11: 0.0605, 12: 0.0000, 13: 0.2537, 14: 0.0000, 15: 0.0000, 16: 0.0000, 17: 0.0000, 18: 0.0044
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 16384.0
+eta: 3h 51min, epoch: 2, iter: 500 , time: 3.119 s/iter, lr: 1.70e-05, D_lr: 1.70e-05, loss: 0.614311, D_Origin-Predictor_loss: 0.193673, mask_loss: 0.614311
+eta: 3h 37min, epoch: 2, iter: 600 , time: 3.004 s/iter, lr: 1.58e-05, D_lr: 1.58e-05, loss: 0.600165, D_Origin-Predictor_loss: 0.190663, mask_loss: 0.600165
+eta: 3h 32min, epoch: 2, iter: 700 , time: 3.001 s/iter, lr: 1.44e-05, D_lr: 1.44e-05, loss: 0.543782, D_Origin-Predictor_loss: 0.188830, mask_loss: 0.543782
+eta: 3h 27min, epoch: 2, iter: 800 , time: 3.000 s/iter, lr: 1.30e-05, D_lr: 1.30e-05, loss: 0.545323, D_Origin-Predictor_loss: 0.187368, mask_loss: 0.545323
+epoch: 2, val_miou: 0.1129(0.1129), 0: 0.3904, 1: 0.1405, 2: 0.4837, 3: 0.0316, 4: 0.0705, 5: 0.1189, 6: 0.0787, 7: 0.0336, 8: 0.3449, 9: 0.0497, 10: 0.0193, 11: 0.0886, 12: 0.0000, 13: 0.2946, 14: 0.0000, 15: 0.0000, 16: 0.0000, 17: 0.0000, 18: 0.0000
+eta: 3h 26min, epoch: 2, iter: 900 , time: 3.053 s/iter, lr: 1.14e-05, D_lr: 1.14e-05, loss: 0.513777, D_Origin-Predictor_loss: 0.188261, mask_loss: 0.513777
+eta: 3h 21min, epoch: 3, iter: 1000 , time: 3.067 s/iter, lr: 9.85e-06, D_lr: 9.85e-06, loss: 0.515368, D_Origin-Predictor_loss: 0.192940, mask_loss: 0.515368
+eta: 3h 12min, epoch: 3, iter: 1100 , time: 3.001 s/iter, lr: 8.28e-06, D_lr: 8.28e-06, loss: 0.492262, D_Origin-Predictor_loss: 0.187664, mask_loss: 0.492262
+eta: 3h 07min, epoch: 3, iter: 1200 , time: 3.001 s/iter, lr: 6.74e-06, D_lr: 6.74e-06, loss: 0.460030, D_Origin-Predictor_loss: 0.189909, mask_loss: 0.460030
+epoch: 3, val_miou: 0.1236(0.1236), 0: 0.4462, 1: 0.1887, 2: 0.4981, 3: 0.0552, 4: 0.0983, 5: 0.1535, 6: 0.0830, 7: 0.0364, 8: 0.3551, 9: 0.0533, 10: 0.0140, 11: 0.0781, 12: 0.0000, 13: 0.2877, 14: 0.0000, 15: 0.0000, 16: 0.0000, 17: 0.0000, 18: 0.0000
