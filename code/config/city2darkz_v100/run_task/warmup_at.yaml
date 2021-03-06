@@ -42,5 +42,5 @@ DATASET:
     ANNS: "../data/darkzurich_train.json"
     IMAGEDIR: "../../scratch/data/dark_zurich"
 TEST:
-  RESIZE_SIZE: [[1280, 640]]
+  RESIZE_SIZE: [[1920, 1080]]
 WORK_DIR: "../../saved_models/IAST"

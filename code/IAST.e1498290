@@ -1,0 +1,32 @@
+Exception in thread Thread-5:
+Traceback (most recent call last):
+  File "/home/cse/phd/anz208849/anaconda3/envs/IAST/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/cse/phd/anz208849/anaconda3/envs/IAST/lib/python3.7/site-packages/tensorboardX/event_file_writer.py", line 202, in run
+    data = self._queue.get(True, queue_wait_duration)
+  File "/home/cse/phd/anz208849/anaconda3/envs/IAST/lib/python3.7/multiprocessing/queues.py", line 108, in get
+    res = self._recv_bytes()
+  File "/home/cse/phd/anz208849/anaconda3/envs/IAST/lib/python3.7/multiprocessing/connection.py", line 216, in recv_bytes
+    buf = self._recv_bytes(maxlength)
+  File "/home/cse/phd/anz208849/anaconda3/envs/IAST/lib/python3.7/multiprocessing/connection.py", line 407, in _recv_bytes
+    buf = self._recv(4)
+  File "/home/cse/phd/anz208849/anaconda3/envs/IAST/lib/python3.7/multiprocessing/connection.py", line 383, in _recv
+    raise EOFError
+EOFError
+
+Exception in thread Thread-6:
+Traceback (most recent call last):
+  File "/home/cse/phd/anz208849/anaconda3/envs/IAST/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/cse/phd/anz208849/anaconda3/envs/IAST/lib/python3.7/site-packages/tensorboardX/event_file_writer.py", line 202, in run
+    data = self._queue.get(True, queue_wait_duration)
+  File "/home/cse/phd/anz208849/anaconda3/envs/IAST/lib/python3.7/multiprocessing/queues.py", line 108, in get
+    res = self._recv_bytes()
+  File "/home/cse/phd/anz208849/anaconda3/envs/IAST/lib/python3.7/multiprocessing/connection.py", line 216, in recv_bytes
+    buf = self._recv_bytes(maxlength)
+  File "/home/cse/phd/anz208849/anaconda3/envs/IAST/lib/python3.7/multiprocessing/connection.py", line 407, in _recv_bytes
+    buf = self._recv(4)
+  File "/home/cse/phd/anz208849/anaconda3/envs/IAST/lib/python3.7/multiprocessing/connection.py", line 383, in _recv
+    raise EOFError
+EOFError
+
