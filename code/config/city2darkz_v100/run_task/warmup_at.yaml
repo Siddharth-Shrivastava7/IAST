@@ -16,7 +16,7 @@ MODEL:
     LOSS: "MSELoss"
 TRAIN:
   ITER_VAL: 400
-  EPOCHES: 4
+  EPOCHES: 10
   OPTIMIZER: "Adam"
   LR: 0.00002
   BATCHSIZE: 4
@@ -43,4 +43,4 @@ DATASET:
     IMAGEDIR: "../../scratch/data/dark_zurich"
 TEST:
   RESIZE_SIZE: [[1280, 640]]
-WORK_DIR: "./v100_log/cityscapes/task1/warmup_at"
+WORK_DIR: "../../saved_models/IAST"
